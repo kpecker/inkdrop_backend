@@ -12,22 +12,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.db = exports.client = void 0;
-exports.loginAction = loginAction;
-require("dotenv/config");
 const postgres_js_1 = require("drizzle-orm/postgres-js");
 const postgres_1 = __importDefault(require("postgres"));
-const schema_1 = require("../../db/schema");
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString) {
-    throw new Error('DATABASE_URL environment variable is not set');
-}
-// Disable prefetch as it is not supported for "Transaction" pool mode
-exports.client = (0, postgres_1.default)(connectionString, { prepare: false });
-exports.db = (0, postgres_js_1.drizzle)(exports.client);
-function loginAction() {
+const process = require("process");
+function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const users = yield exports.db.select().from(schema_1.usersTable);
-        return { users: users };
+        if (!process.env.DATABASE_URL) {
+            throw new Error('DATABASE_URL environment variable is not set');
+        }
+        const client = (0, postgres_1.default)(process.env.DATABASE_URL);
+        const db = (0, postgres_js_1.drizzle)({ client });
     });
 }
