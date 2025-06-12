@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "\"**/*.js.map\": {\"when\": \"$(basename)\"}": true
+  },
+  "editor.formatOnSave": true
+}
