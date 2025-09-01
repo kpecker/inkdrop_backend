@@ -20,6 +20,16 @@ export const client = postgres(connectionString, { prepare: false });
 export const db = drizzle(client);
 
 
+
+export async function getUsers(request: FastifyRequest<{ Body: User }>,
+  reply: FastifyReply
+) {
+
+  const users = await db.select().from(usersTable).where(eq(usersTable.email, request.body.email));
+
+  return { user: users };
+}
+
 export async function loginAction(request: FastifyRequest<{ Body: User }>,
   reply: FastifyReply
 ) {

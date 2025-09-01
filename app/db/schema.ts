@@ -9,3 +9,6 @@ export const usersTable = pgTable('users', {
   created_at: timestamp({ withTimezone: true }).notNull().defaultNow(),
   updated_at: timestamp({ withTimezone: true }).notNull().defaultNow(),
 });
+
+
+

@@ -1,0 +1,50 @@
+{
+  "thumbnail_sets": [
+    {
+      "id": "1",
+      "name": "Set 1",
+      "source_images": [
+        {
+          "id": "1",
+          "thumbnail1setId": "1",
+          "url": "https://example.com/thumbnail1.jpg"
+        },
+        {
+          "id": "2",
+          "thumbnail1setId": "1",
+          "url": "https://example.com/thumbnail2.jpg"
+        }
+      ],
+      "thumbnails": [
+        {
+          "id": "1",
+          "thumbnail1setId": "1",
+          "templateId": "template1",
+          "source_images_id": "2"
+        },
+        {
+          "id": "2",
+          "thumbnail1setId": "1",
+          "templateId": "template2",
+          "source_images_id": "2"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Set 2",
+      "source_images": [
+        {
+          "id": "3",
+          "thumbnail1setId": "2",
+          "url": "https://example.com/thumbnail3.jpg"
+        },
+        {
+          "id": "4",
+          "thumbnail1setId": "2",
+          "url": "https://example.com/thumbnail4.jpg"
+        }
+      ]
+    }
+  ]
+}
